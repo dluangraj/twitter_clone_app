@@ -7,7 +7,7 @@ module.exports = async (req, res) => {
         }`
 
     if (!req.body.email || !req.body.password) {
-        res.redirect('./auth/login.js')
+        res.redirect('/auth/login')
         return;
     }
 
@@ -28,9 +28,9 @@ module.exports = async (req, res) => {
         const jwtToken = data.data.login
         res.cookie('jwtToken', jwtToken, { maxAge: 900000, httpOnly: true });
 
-        res.redirect('./auth/login.js')
+        res.redirect('/')
     } catch(e) {
         console.log(e.response.data.errors)
-        res.redirect('./auth/login.js')
+        res.redirect('/auth/login')
     }   
 }

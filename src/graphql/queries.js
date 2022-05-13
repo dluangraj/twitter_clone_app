@@ -6,7 +6,14 @@ const users = {
     type: new GraphQLList(UserType),
     description: 'Query all users in the database',
     resolve( parent, args ) {
-        return User.find(args.id)
+        return User.find()
+    }
+}
+const posts = {
+    type: new GraphQLList(PostType),
+    description: 'Query all posts in the database',
+    resolve( parent, args) {
+        return Post.find()
     }
 }
 
@@ -43,4 +50,4 @@ const postById = {
     }
 }
 
-module.exports = { users, user, postBySlug, postById }
+module.exports = { users, posts, user, postBySlug, postById }

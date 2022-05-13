@@ -1,6 +1,6 @@
 const { GraphQLString, GraphQLList, GraphQLNonNull, GraphQLObjectType, GraphQLInt } = require('graphql')
-const { QuestionInputType, AnswerInputType } = require('./types')
-const { User, Quiz, Question, Submission } = require('../models')
+const { PostInputType } = require('./types')
+const { User, Post } = require('../models')
 const { createJwtToken } = require('../util/auth')
 
 const register = {
@@ -83,9 +83,9 @@ const createPost = {
             description: args.description,
             userId: args.userId
         })
-
+        console.log(post)
         await post.save()
-
+        return post.id
     //     /* Create question types and connect to new quiz */
     //     for (const question of args.questions) {
     //         const questionItem = new Question({

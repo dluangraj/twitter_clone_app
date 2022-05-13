@@ -33,7 +33,7 @@ fields: () => ({
 })
 
 const PostInputType = new GraphQLInputObjectType({
-name: 'Post Input',
+name: 'PostInput',
 description: 'Post Input Type',
 fields: () => ({
     title: { type: GraphQLString },

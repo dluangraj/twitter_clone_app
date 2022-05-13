@@ -14,7 +14,7 @@ const authenticate = async (req, res, next) => {
         console.log("User verification successful!", verified)
         next()
     } catch(err) {
-        console.log("User verification failed")
+        // console.log("User verification failed", err)
 
         if ( unprotectedRoutes.includes(req.path) ) {
             next()

@@ -1,14 +1,29 @@
-<%- include('../partials/header')  %>
-<div class="container">
-    <div class="jumbotron m-4">
-    <h1 class="display-4"> <%= user.firstName %>'s  Twitter Clone App</h1>
-    <p class="lead">This is a Twitter Clone App.</p>
-    <hr class="my-4">
-    <p>Post messages!</p>
-    <p class="lead">
-      <a class="btn btn-primary btn-lg" href="/profile" role="button">Go to your profile!</a>
-    </p>
-  </div>
-</div>
+<%- include('../partials/header') %>
 
-<%- include('../partials/footer')  %> 
+<main class="container">
+    <div class="row">
+        <div class="col-md-6 offset-3">
+            <div class="card mt-5">
+                <div class="card-body">
+                    <h1 class="mb-4">Login</h1>
+                    <form method="POST" action="/auth/login" enctype="application/x-www-form-urlencoded">
+                        <div class="form-group">
+                          <label for="email">Email</label>
+                          <input type="email" name="email" class="form-control">
+                        </div>
+                        <div class="form-group">
+                          <label for="password">Password</label>
+                          <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <a href="/auth/register"><small>Don't have an account? Register here.</small></a>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Login</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+
+<%- include('../partials/footer') %>
